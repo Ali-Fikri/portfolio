@@ -3,6 +3,10 @@ import styled from "styled-components";
 
 import { lightTheme } from "./Themes";
 import { Develope } from "./AllSvgs";
+import LogoComponent from "./LogoComponent";
+import PowerButton from "./PowerButton";
+import SocialIcons from "./SocialIcons";
+import ParticleComponent from "./ParticleComponent";
 
 const Container = styled.div`
   background-color: ${(props) => props.theme.body};
@@ -12,6 +16,7 @@ const Container = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  cursor: pointer;
 `;
 
 const Card = styled.div`
@@ -28,6 +33,11 @@ const Card = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  &:hover {
+    color: ${(props) => props.theme.body};
+    background-color: ${(props) => props.theme.text};
+  }
 `;
 
 const Title = styled.h2`
@@ -35,18 +45,37 @@ const Title = styled.h2`
   justify-content: center;
   align-items: center;
   font-size: calc(1em + 1vw);
+
+  ${Card}:hover & {
+    & > * {
+      fill: ${(props) => props.theme.body};
+    }
+  }
+
+  & > *:first-child {
+    margin-right: 1rem;
+  }
 `;
 
 const Description = styled.div`
   color: ${(props) => props.theme.text};
   font-size: calc(0.6em + 1vw);
   padding: 0.5rem 0;
+
+  ${Card}:hover & {
+    color: ${(props) => props.theme.body};
+  }
 `;
 
 const MySkills = () => {
   return (
     <ThemeProvider theme={lightTheme}>
       <Container>
+        <LogoComponent theme="light" />
+        <SocialIcons theme="light" />
+        <PowerButton />
+        <ParticleComponent theme="light" />
+
         <Card>
           <Title>
             <Develope width={40} height={40} /> Frontend Developer
@@ -54,6 +83,14 @@ const MySkills = () => {
           <Description>
             I value business or brand for which i'm creating, thus i enjoy
             bringing new ideas to life.
+          </Description>
+          <Description>
+            <strong>SKILLS</strong>
+            <p>Html, Css, Js, React, Redux, Sass, Bootstrap, Tailwind etc.</p>
+          </Description>
+          <Description>
+            <strong>TOOLS</strong>
+            <p>VScode, Github, Codepen etc.</p>
           </Description>
         </Card>
       </Container>

@@ -23,7 +23,7 @@ const Line = styled.span`
   background-color: ${props => props.color === 'dark' ? darkTheme.text : darkTheme.body};
 `
 
-const socialIcons = ({ theme }) => {
+const SocialIcons = ({ theme }) => {
   return (
     <Icons>
       <div>
@@ -46,4 +46,4 @@ const socialIcons = ({ theme }) => {
   );
 };
 
-export default socialIcons;
+export default SocialIcons;
