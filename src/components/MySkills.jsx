@@ -16,10 +16,9 @@ const Container = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  cursor: pointer;
-`;
-
-const Card = styled.div`
+  `;
+  
+  const Card = styled.div`
   width: 30vw;
   height: 60vh;
   color: ${(props) => props.theme.text};
@@ -28,6 +27,7 @@ const Card = styled.div`
   padding: 2rem;
   line-height: 1.5;
   z-index: 3;
+  cursor: pointer;
 
   font-family: "Ubuntu Mono", monospace;
   display: flex;
