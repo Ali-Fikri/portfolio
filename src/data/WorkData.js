@@ -56,6 +56,4 @@ export const Work = [
         github:"https://github.com/codebucks27/React-responsive-navbar"
         
     },
-    
-  
 ] 
