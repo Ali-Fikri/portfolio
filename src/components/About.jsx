@@ -64,7 +64,7 @@ const About = () => {
           <img src={astronaut} alt="spaceman" />
         </Spaceman>
         <Bio>
-          Hello! I'm a passionate Frontend Developer with a knack for creating
+          Hello! I'm a passionate Frontend Developer with a knack for  creating
           visually stunning and user-friendly websites.
           <br />
           <br />
