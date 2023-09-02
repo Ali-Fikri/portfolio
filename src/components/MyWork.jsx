@@ -10,6 +10,7 @@ import { Work } from "../data/WorkData";
 import Card from "./Card";
 import { YinYang } from "./AllSvgs";
 import MainTitle from "./MainTitle";
+import SoundBar from "./SoundBar";
 
 const Container = styled.div`
   background-color: ${(props) => props.theme.body};
@@ -52,6 +53,7 @@ const MyWork = () => {
       <Container>
         <LogoComponent theme="dark" />
         <SocialIcons theme="dark" />
+        <SoundBar theme="dark" />
         <PowerButton />
         <MainTitle 
           text="WORK" 

@@ -6,6 +6,8 @@ import LogoComponent from "./LogoComponent";
 import PowerButton from "./PowerButton";
 import SocialIcons from "./SocialIcons";
 import ParticleComponent from "./ParticleComponent";
+import SoundBar from "./SoundBar";
+import MainTitle from "./MainTitle";
 import astronaut from "../assets/Images/spaceman.png";
 
 const Container = styled.div`
@@ -32,19 +34,19 @@ const Spaceman = styled.div`
 
 const Bio = styled.div`
 position: absolute;
-top: 12rem;
+top: 10rem;
 left: calc(5rem + 5vw);
 
 width: 50vw;
 height: 50vh;
-padding: 2rem;
+padding: 4rem 2rem;
 border: 3px solid ${props => props.theme.text};
 color: ${props => props.theme.text};
 background-color: transparent;
 
 font-size: 1.6em;
 font-family: "Ubuntu Mono",monospace;
-font-style: italic:
+font-style: italic;
 line-height: 1.5;
 
 display: flex;
@@ -59,6 +61,13 @@ const About = () => {
       <Container>
         <LogoComponent theme="dark" />
         <SocialIcons theme="dark" />
+        <SoundBar theme="light" />
+        <MainTitle 
+          text="ABOUT" 
+          top="10%" 
+          left="5%" 
+          theme={darkTheme} />
+
         <PowerButton />
         <ParticleComponent theme="dark" />
         <Spaceman>

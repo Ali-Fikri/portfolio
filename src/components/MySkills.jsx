@@ -7,6 +7,8 @@ import LogoComponent from "./LogoComponent";
 import PowerButton from "./PowerButton";
 import SocialIcons from "./SocialIcons";
 import ParticleComponent from "./ParticleComponent";
+import MainTitle from "./MainTitle";
+import SoundBar from "./SoundBar";
 
 const Container = styled.div`
   background-color: ${(props) => props.theme.body};
@@ -14,7 +16,7 @@ const Container = styled.div`
   height: 100vh;
   position: relative;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   `;
   
@@ -74,6 +76,12 @@ const MySkills = () => {
         <LogoComponent theme="light" />
         <SocialIcons theme="light" />
         <PowerButton />
+        <SoundBar theme={"dark"} />
+        <MainTitle 
+          text="Skills" 
+          bottom="0%" 
+          right="10%" 
+          theme={lightTheme} />
         <ParticleComponent theme="light" />
 
         <Card>
