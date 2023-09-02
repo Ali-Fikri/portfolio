@@ -8,24 +8,25 @@ const Box = styled.div`
   position: fixed;
   left: 8rem;
   top: 4rem;
+  cursor: pointer;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  &>*:nth-child(1) {
+  & > *:nth-child(1) {
     animation-delay: 0.2s;
   }
-  &>*:nth-child(2) {
+  & > *:nth-child(2) {
     animation-delay: 0.3s;
   }
-  &>*:nth-child(3) {
+  & > *:nth-child(3) {
     animation-delay: 0.4s;
   }
-  &>*:nth-child(4) {
+  & > *:nth-child(4) {
     animation-delay: 0.6s;
   }
-  &>*:nth-child(5) {
+  & > *:nth-child(5) {
     animation-delay: 0.8s;
   }
 `;
@@ -40,17 +41,19 @@ const wave = keyframes`
   100% {
     transform: scaleY(1)
   }
-`
+`;
 
 const Line = styled.span`
   width: 2px;
   height: 1rem;
-  margin-right: 0.3rem;
+  margin-right: 0.2rem;
   background-color: ${(props) =>
-    props.color === "dark" ? darkTheme.text : darkTheme.body};
+    props.color === "light" ? darkTheme.text : darkTheme.body};
+  border: 1px solid ${(props) =>
+    props.color === "light" ? darkTheme.body : darkTheme.text};
 
   animation: ${wave} 1s ease infinite;
-  animation-play-state: ${(props) => props.animate ? "running" : "paused" };
+  animation-play-state: ${(props) => (props.animate ? "running" : "paused")};
 `;
 
 const SoundBar = ({ theme }) => {
@@ -67,7 +70,7 @@ const SoundBar = ({ theme }) => {
     }
   };
   return (
-    <Box color={theme} onClick={ handleSoundPlay}>
+    <Box color={theme} onClick={handleSoundPlay}>
       <Line animate={play} />
       <Line animate={play} />
       <Line animate={play} />
