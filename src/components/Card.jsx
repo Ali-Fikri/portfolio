@@ -1,9 +1,23 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 import { Github } from "./AllSvgs";
 
-const Box = styled.li`
+const Item = {
+  hidden: {
+    scale: 0,
+  },
+  show: {
+    scale: 1,
+    transition: {
+      type: "spring",
+      duration: 0.5,
+    },
+  },
+};
+
+const Box = styled(motion.li)`
   background-color: ${(props) => props.theme.text};
   color: ${(props) => props.theme.body};
   width: 16rem;
@@ -40,10 +54,10 @@ const Tags = styled.div`
   gap: 0.3rem;
 
   ${Box}:hover & {
-    border-color: ${props => props.theme.text};
-  } 
+    border-color: ${(props) => props.theme.text};
+  }
 
-  &>* {
+  & > * {
     font-size: 1.1rem;
   }
 `;
@@ -78,7 +92,7 @@ const Git = styled(NavLink)`
 
 const Card = ({ id, name, description, tags, demo, github }) => {
   return (
-    <Box key={id}>
+    <Box key={id} variants={Item}>
       <h2>{name}</h2>
       <Description>{description}</Description>
       <Tags>

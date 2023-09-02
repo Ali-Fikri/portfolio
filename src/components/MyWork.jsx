@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
-import { ThemeProvider } from "styled-components";
-import styled from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
+import { motion } from "framer-motion";
 
 import { darkTheme } from "./Themes";
 import LogoComponent from "./LogoComponent";
@@ -12,13 +12,27 @@ import { YinYang } from "./AllSvgs";
 import MainTitle from "./MainTitle";
 import SoundBar from "./SoundBar";
 
+const Variants = {
+  hidden: {
+    opacity: 0,
+  },
+  show: {
+    opacity: 1,
+
+    transition: {
+      staggerChildren: 0.5,
+      duration: 0.5,
+    },
+  },
+};
+
 const Container = styled.div`
   background-color: ${(props) => props.theme.body};
   height: 300vh;
   position: relative;
 `;
 
-const Cards = styled.ul`
+const Cards = styled(motion.ul)`
   position: fixed;
   top: 8rem;
   left: calc(9rem + 12vw);
@@ -55,12 +69,13 @@ const MyWork = () => {
         <SocialIcons theme="dark" />
         <SoundBar theme="dark" />
         <PowerButton />
-        <MainTitle 
-          text="WORK" 
-          top="10%" 
-          right="20%" 
-          theme={darkTheme} />
-        <Cards ref={cardsRef}>
+        <MainTitle text="WORK" top="10%" right="20%" theme={darkTheme} />
+        <Cards
+          ref={cardsRef}
+          initial="hidden"
+          animate="show"
+          variants={Variants}
+        >
           {Work.map((data) => (
             <Card
               key={data.id}

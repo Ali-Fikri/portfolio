@@ -1,19 +1,25 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
+
+import { AnimatePresence } from "framer-motion";
 import { ThemeProvider } from "styled-components";
-import { lightTheme } from './components/Themes';
-import { Home, About, MySkills, Work } from './components';
+import { lightTheme } from "./components/Themes";
+import { Home, About, MySkills, Work } from "./components";
 
 function App() {
+  const location = useLocation();
+
   return (
     <>
       <ThemeProvider theme={lightTheme}>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/my-skills' element={<MySkills />} />
-          <Route path='/work' element={<Work />} />
-        </Routes>
-        </ThemeProvider>
+        <AnimatePresence mode="wait">
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/my-skills" element={<MySkills />} />
+            <Route path="/work" element={<Work />} />
+          </Routes>
+        </AnimatePresence>
+      </ThemeProvider>
     </>
   );
 }
