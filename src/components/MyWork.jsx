@@ -9,7 +9,7 @@ import SocialIcons from "./SocialIcons";
 import { Work } from "../data/WorkData";
 import Card from "./Card";
 import { YinYang } from "./AllSvgs";
-
+import MainTitle from "./MainTitle";
 
 const Container = styled.div`
   background-color: ${(props) => props.theme.body};
@@ -31,22 +31,21 @@ const RotateYinYang = styled.div`
   height: 80px;
   bottom: 1rem;
   right: 2rem;
-`
+`;
 
 const MyWork = () => {
   const cardsRef = useRef(null);
   const yinyangRef = useRef(null);
 
   useEffect(() => {
-    const rotate = _=> {
+    const rotate = (_) => {
       cardsRef.current.style.transform = `translateX(${-window.pageYOffset}px)`;
       yinyangRef.current.style.transform = `rotate(${-window.pageYOffset}deg)`;
-    }
+    };
 
-    window.addEventListener('scroll', rotate);
-    return window.addEventListener('scroll', rotate);
-      
-  }, [])
+    window.addEventListener("scroll", rotate);
+    return window.addEventListener("scroll", rotate);
+  }, []);
 
   return (
     <ThemeProvider theme={darkTheme}>
@@ -54,7 +53,12 @@ const MyWork = () => {
         <LogoComponent theme="dark" />
         <SocialIcons theme="dark" />
         <PowerButton />
-        <Cards ref={cardsRef} >
+        <MainTitle 
+          text="WORK" 
+          top="10%" 
+          right="20%" 
+          theme={darkTheme} />
+        <Cards ref={cardsRef}>
           {Work.map((data) => (
             <Card
               key={data.id}
