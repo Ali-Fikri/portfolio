@@ -40,7 +40,7 @@ height: 50vh;
 padding: 2rem;
 border: 3px solid ${props => props.theme.text};
 color: ${props => props.theme.text};
-background-color: ${props => props.theme.body};
+background-color: transparent;
 
 font-size: 1.6em;
 font-family: "Ubuntu Mono",monospace;
@@ -50,6 +50,7 @@ line-height: 1.5;
 display: flex;
 justify-content: center;
 align-items: center;
+backdrop-filter: blur(4px);
 `;
 
 const About = () => {
