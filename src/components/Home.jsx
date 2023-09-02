@@ -8,6 +8,7 @@ import LogoComponent from "./LogoComponent";
 import SocialIcons from "./SocialIcons";
 import { YinYang } from "./AllSvgs";
 import Intro from "./Intro";
+import SoundBar from "./SoundBar";
 
 const MainContainer = styled.main`
   background: ${(props) => props.theme.body};
@@ -80,7 +81,7 @@ const Center = styled.button`
 const Contact = styled(NavLink)`
   color: ${(props) => props.theme.text};
   position: absolute;
-  top: 2rem;
+  top: 3rem;
   right: calc(1rem + 2vw);
   text-decoration: none;
   z-index: 1;
@@ -128,6 +129,7 @@ const Home = () => {
         <Container>
           <PowerButton />
           <LogoComponent theme={click ? "dark" : "light"} />
+          <SoundBar theme={click ? "dark" : "light"} />
           <SocialIcons theme={click ? "dark" : "light"} />
 
           <Center click={click}>
