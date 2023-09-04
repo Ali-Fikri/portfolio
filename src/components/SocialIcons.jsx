@@ -1,7 +1,9 @@
 import { NavLink } from "react-router-dom";
-import styled from 'styled-components'
+import styled from "styled-components";
+import { addScaleCorrector, motion } from "framer-motion";
+
+import { darkTheme } from "./Themes";
 import { Facebook, Github, Twitter } from "./AllSvgs";
-import { darkTheme } from './Themes'
 
 const Icons = styled.div`
   display: flex;
@@ -11,37 +13,81 @@ const Icons = styled.div`
   bottom: 0;
   left: 2rem;
   z-index: 3;
+  gap: 0.5rem;
+`;
 
-  &>*::not(:last-child) {
-    margin: 0%.5rem 0;
-  }
-`
-
-const Line = styled.span`
+const Line = styled(motion.span)`
   width: 2px;
   height: 8rem;
-  background-color: ${props => props.color === 'dark' ? darkTheme.text : darkTheme.body};
-`
+  background-color: ${(props) =>
+    props.color === "dark" ? darkTheme.text : darkTheme.body};
+`;
 
 const SocialIcons = ({ theme }) => {
   return (
     <Icons>
-      <div>
-        <NavLink style={{color: 'inherit'}} target='_blank' to="https://github.com/ali-fikri">
-          <Github width={25} height={25} fill={theme === 'dark' ? darkTheme.text : darkTheme.body} />
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ scale: [0, 1, 1.5, 1] }}
+        transition={{ type: "spring", duration: 1.5, delay: 1.2 }}
+      >
+        <NavLink
+          style={{ color: "inherit" }}
+          target="_blank"
+          to="https://github.com/ali-fikri"
+        >
+          <Github
+            width={25}
+            height={25}
+            fill={theme === "dark" ? darkTheme.text : darkTheme.body}
+          />
         </NavLink>
-      </div>
-      <div>
-        <NavLink style={{color: 'inherit'}} target='_blank' to="https://github.com/ali-fikri">
-          <Twitter width={25} height={25} fill={theme === 'dark' ? darkTheme.text : darkTheme.body} />
+      </motion.div>
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ type: "spring", duration: 1, delay: 1.4 }}
+      >
+        <NavLink
+          style={{ color: "inherit" }}
+          target="_blank"
+          to="https://github.com/ali-fikri"
+        >
+          <Twitter
+            width={25}
+            height={25}
+            fill={theme === "dark" ? darkTheme.text : darkTheme.body}
+          />
         </NavLink>
-      </div>
-      <div>
-        <NavLink style={{color: 'inherit'}} target='_blank' to="https://github.com/ali-fikri">
-          <Facebook width={25} height={25} fill={theme === 'dark' ? darkTheme.text : darkTheme.body} />
+      </motion.div>
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ type: "spring", duration: 1, delay: 1.6 }}
+      >
+        <NavLink
+          style={{ color: "inherit" }}
+          target="_blank"
+          to="https://github.com/ali-fikri"
+        >
+          <Facebook
+            width={25}
+            height={25}
+            fill={theme === "dark" ? darkTheme.text : darkTheme.body}
+          />
         </NavLink>
-      </div>
-      <Line color={theme} />
+      </motion.div>
+      <Line
+        color={theme}
+        initial={{
+          y: 200,
+          transition: { type: "spring", duration: 1, delay: 0.8 },
+        }}
+        animate={{
+          y: 0,
+          transition: { type: "spring", duration: 1, delay: 0.8 },
+        }}
+      />
     </Icons>
   );
 };
