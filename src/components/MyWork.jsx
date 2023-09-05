@@ -34,10 +34,16 @@ const Container = styled.div`
 
 const Cards = styled(motion.ul)`
   position: fixed;
-  top: 8rem;
+  top: 25%;
   left: calc(9rem + 12vw);
   height: 40vh;
   display: flex;
+
+  @media only screen and (max-width: 600px) {
+    & {
+      left: calc(2rem + 15vw);
+    }
+  }
 `;
 
 const RotateYinYang = styled.div`

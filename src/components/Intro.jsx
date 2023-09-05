@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 import Me from "../assets/Images/profile-img.png";
 
@@ -7,31 +7,34 @@ const Box = styled(motion.div)`
   position: absolute;
   left: 50%;
   top: 50%;
+  width: 65vw;
   transform: translate(-50%, -50%);
 
-  width: 65vw;
-  height: 55vh;
   display: flex;
 
-  background: linear-gradient(
-        to right,
-        ${(props) => props.theme.body} 50%,
-        ${(props) => props.theme.text} 50%
-      )
-      bottom,
-    linear-gradient(
-        to right,
-        ${(props) => props.theme.body} 50%,
-        ${(props) => props.theme.text} 50%
-      )
-      top;
-  background-repeat: no-repeat;
-  background-size: 100% 2px;
+  border-width: 2px;
+      border-style: solid;
+      border-image: linear-gradient(
+          to right,
+          ${(props) => props.theme.body} 50%,
+          ${(props) => props.theme.text} 50%
+        )
+        1;
 
-  border-left: 2px solid ${(props) => props.theme.body};
-  border-right: 2px solid ${(props) => props.theme.text};
 
-  z-index: 1;
+  @media only screen and (max-width: 600px) {
+    & {
+      border-image: linear-gradient(
+          to bottom,
+          ${(props) => props.theme.body} 50%,
+          ${(props) => props.theme.text} 50%
+        )
+        1;
+
+        flex-direction: column;
+        align-items: space-between;
+    }
+  }
 `;
 
 const SubBox = styled.div`
@@ -45,6 +48,14 @@ const SubBox = styled.div`
     left: 50%;
     transform: translate(-50%, 0);
     width: 100%;
+  }
+
+  @media only screen and (max-width: 600px) {
+    & {
+      width: 100%;
+      height: 50%;
+      justify-content: space-between;
+    }
   }
 `;
 
@@ -68,9 +79,9 @@ const Text = styled.div`
 const Intro = () => {
   return (
     <Box
-      initial={{height: '0'}}
-      animate={{height: '55vh'}}
-      transition={{ type: 'spring', duration: 2, delay: 1}}
+      initial={{ height: "0" }}
+      animate={{ height: "70vh" }}
+      transition={{ type: "spring", duration: 2, delay: 1 }}
     >
       <SubBox>
         <Text>

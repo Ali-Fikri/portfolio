@@ -26,10 +26,14 @@ const float = keyframes`
 
 const Spaceman = styled.div`
   position: absolute;
-  top: 20%;
+  top: 10%;
   right: 5%;
   width: 20vw;
   animation: ${float} 2s ease infinite;
+
+  img {
+    width: 100%;
+  }
 `;
 
 const Bio = styled.div`
@@ -40,11 +44,11 @@ left: calc(5rem + 5vw);
 width: 50vw;
 height: 50vh;
 padding: 4rem 2rem;
-border: 3px solid ${props => props.theme.text};
+border: 2px solid ${props => props.theme.text};
 color: ${props => props.theme.text};
 background-color: transparent;
 
-font-size: 1.6em;
+font-size: calc(0.6rem + 1vw);
 font-family: "Ubuntu Mono",monospace;
 font-style: italic;
 line-height: 1.5;
@@ -53,6 +57,16 @@ display: flex;
 justify-content: center;
 align-items: center;
 backdrop-filter: blur(4px);
+
+@media only screen and (max-width: 600px) {
+  & {
+    top: 30%;
+left: calc(3rem + 5vw);
+
+    padding: 0 2rem;
+    font-size: 0.8em;
+  }
+}
 `;
 
 const About = () => {

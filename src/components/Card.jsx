@@ -36,12 +36,33 @@ const Box = styled(motion.li)`
     color: ${(props) => props.theme.text};
     border: 1px solid ${(props) => props.theme.text};
   }
+
+  @media only screen and (max-width: 600px) {
+    & {
+      width: 14rem;
+      height: 35vh;
+    }
+  }
+`;
+
+const Title = styled.h2`
+  @media only screen and (max-width: 600px) {
+    & {
+      font-size: calc(1em + 0.5vw);
+    }
+  }
 `;
 
 const Description = styled.p`
   font-size: 1.1rem;
   font-family: "Karla", sans-serif;
   font-weight: 500;
+
+  @media only screen and (max-width: 600px) {
+    & {
+      font-size: 0.9rem;
+    }
+  }
 `;
 
 const Tags = styled.div`
@@ -93,7 +114,7 @@ const Git = styled(NavLink)`
 const Card = ({ id, name, description, tags, demo, github }) => {
   return (
     <Box key={id} variants={Item}>
-      <h2>{name}</h2>
+      <Title>{name}</Title>
       <Description>{description}</Description>
       <Tags>
         {tags.map((tag) => (

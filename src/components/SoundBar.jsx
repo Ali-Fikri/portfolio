@@ -14,6 +14,13 @@ const Box = styled.div`
   justify-content: center;
   align-items: center;
 
+  @media only screen and (max-width: 600px) {
+    & {
+      left: 1rem;
+      top: 6rem;
+    }
+  }
+
   & > *:nth-child(1) {
     animation-delay: 0.2s;
   }
@@ -49,11 +56,18 @@ const Line = styled.span`
   margin-right: 0.2rem;
   background-color: ${(props) =>
     props.color === "light" ? darkTheme.text : darkTheme.body};
-  border: 1px solid ${(props) =>
-    props.color === "light" ? darkTheme.body : darkTheme.text};
+  border: 1px solid
+    ${(props) => (props.color === "light" ? darkTheme.body : darkTheme.text)};
 
   animation: ${wave} 1s ease infinite;
   animation-play-state: ${(props) => (props.animate ? "running" : "paused")};
+
+  @media only screen and (max-width: 600px) {
+    & {
+      height: 0.7rem;
+      width: 1px;
+    }
+  }
 `;
 
 const SoundBar = ({ theme }) => {

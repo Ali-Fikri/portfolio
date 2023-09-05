@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 import { motion } from "framer-motion";
@@ -36,6 +36,15 @@ const DarkDiv = styled.div`
   width: ${(props) => (props.click ? "50%" : "0%")};
   height: ${(props) => (props.click ? "100%" : "0%")};
   transition: height 0.5s ease, width 1s ease 0.5s;
+
+  @media only screen and (max-width: 600px) {
+    & {
+      right: 0;
+      width: ${(props) => (props.click ? "100%" : "0%")};
+      height: ${(props) => (props.click ? "50%" : "0%")};
+      transition: width 0.5s ease 0s, height 1s ease 0.5s;
+    }
+  }
 `;
 
 const Container = styled.div`
@@ -76,6 +85,12 @@ const Center = styled.button`
     display: ${(props) => (props.click ? "none" : "inline-block")};
     padding-top: 1rem;
   }
+
+  @media only screen and (max-width: 600px) {
+    & {
+      top: ${(props) => (props.click ? "93%" : "50%")};
+    }
+  }
 `;
 
 const Contact = styled(NavLink)`
@@ -85,6 +100,13 @@ const Contact = styled(NavLink)`
   right: calc(1rem + 2vw);
   text-decoration: none;
   z-index: 1;
+
+  @media only screen and (max-width: 600px) {
+    & {
+      font-size: 0.9rem;
+      color: ${(props) => (props.click ? props.theme.text : props.theme.body)};
+    }
+  }
 `;
 
 const About = styled(NavLink)`
@@ -95,6 +117,14 @@ const About = styled(NavLink)`
   transform: rotate(90deg); translate(-50%, -50%);
   text-decoration: none;
   z-index: 1;
+
+  @media only screen and (max-width: 600px) {
+    & {
+      color: ${props => props.click ? "white" : props.theme.text};
+      right: 1rem;
+      font-size: 0.9rem;
+      text-shadow: rgb(0, 0, 0) 0px 0px 4px;}
+  }
 `;
 
 const Work = styled(NavLink)`
@@ -105,6 +135,13 @@ const Work = styled(NavLink)`
   transform: rotate(-90deg); translate(-50%, -50%);
   text-decoration: none;
   z-index: 1;
+
+  @media only screen and (max-width: 600px) {
+    & {
+      left: 1rem;
+      font-size: 0.9rem;
+      text-shadow: rgb(0, 0, 0) 0px 0px 4px;}
+  }
 `;
 
 const Skills = styled(NavLink)`
@@ -116,10 +153,33 @@ const Skills = styled(NavLink)`
   transition: all 0.7s ease 0.5s;
   text-decoration: none;
   z-index: 1;
+
+  @media only screen and (max-width: 600px) {
+    & {
+      left: 50%;
+      font-size: 0.9rem;
+      text-shadow: rgb(0, 0, 0) 0px 0px 4px;
+    }
+  }
 `;
 
 const Home = () => {
   const [click, setClick] = useState(false);
+  const [smallYin, setSmallYin] = useState(120);
+  const [bigYin, setBigYin] = useState(200);
+
+  useEffect(
+    (_) => {
+      if (window.innerWidth > 600) {
+        setSmallYin(120);
+        setBigYin(200);
+      } else {
+        setSmallYin(50);
+        setBigYin(150);
+      }
+    },
+    [click]
+  );
 
   return (
     <>
@@ -130,13 +190,15 @@ const Home = () => {
           <PowerButton />
           <LogoComponent theme={click ? "dark" : "light"} />
           <SoundBar theme={click ? "dark" : "light"} />
-          <SocialIcons theme={click ? "dark" : "light"} />
+          <SocialIcons
+            theme={click & (window.innerWidth > 600) ? "dark" : "light"}
+          />
 
           <Center click={click}>
             <YinYang
               onClick={() => setClick(!click)}
-              width={click ? 120 : 200}
-              height={click ? 120 : 200}
+              width={click ? smallYin : bigYin}
+              height={click ? smallYin : bigYin}
               fill="currentColor"
             />
             <span>Click here</span>
@@ -159,7 +221,7 @@ const Home = () => {
             </motion.h3>
           </Contact>
 
-          <About to="/about">
+          <About click={click} to="/about">
             <motion.h3
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}

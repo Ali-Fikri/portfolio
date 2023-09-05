@@ -16,16 +16,16 @@ const Box = styled.div`
 `;
 
 const ParticleComponent = ({ theme }) => {
-  
-  const particleInit = useCallback(async engine => {
-    console.log(engine);
-
+  const particleInit = useCallback(async (engine) => {
     await loadSlim(engine);
-  }, [])
-  
+  }, []);
+
   return (
     <Box>
-      <Particles init={particleInit} options={theme === "light" ? configLight : configDark} />
+      <Particles
+        init={particleInit}
+        options={theme === "light" ? configLight : configDark}
+      />
     </Box>
   );
 };

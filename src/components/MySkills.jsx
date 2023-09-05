@@ -40,6 +40,14 @@ const Container = styled.div`
     color: ${(props) => props.theme.body};
     background-color: ${(props) => props.theme.text};
   }
+
+  @media only screen and (max-width: 600px) {
+    & {
+      width: 50vw;
+      height: max-content;
+      line-height: 2;
+    }
+  }
 `;
 
 const Title = styled.h2`
@@ -66,6 +74,10 @@ const Description = styled.div`
 
   ${Card}:hover & {
     color: ${(props) => props.theme.body};
+  }
+
+  .margin {
+    margin-left: 2rem;
   }
 `;
 
@@ -94,11 +106,11 @@ const MySkills = () => {
           </Description>
           <Description>
             <strong>SKILLS</strong>
-            <p>Html, Css, Js, React, Redux, Sass, Bootstrap, Tailwind etc.</p>
+            <p className="margin">Html, Css, Js, React, Redux, Sass, Bootstrap, Tailwind etc.</p>
           </Description>
           <Description>
             <strong>TOOLS</strong>
-            <p>VScode, Github, Codepen etc.</p>
+            <p className="margin">VScode, Github, Codepen etc.</p>
           </Description>
         </Card>
       </Container>

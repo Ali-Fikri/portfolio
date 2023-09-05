@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { addScaleCorrector, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 import { darkTheme } from "./Themes";
 import { Facebook, Github, Twitter } from "./AllSvgs";
