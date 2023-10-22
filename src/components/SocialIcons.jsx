@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 
 import { darkTheme } from "./Themes";
-import { Facebook, Github, Twitter } from "./AllSvgs";
+import { Facebook, Github, Linkedin, Twitter } from "./AllSvgs";
 
 const Icons = styled.div`
   display: flex;
@@ -51,7 +51,7 @@ const SocialIcons = ({ theme }) => {
         <NavLink
           style={{ color: "inherit" }}
           target="_blank"
-          to="https://github.com/ali-fikri"
+          to="https://twitter.com/AliAllaithy"
         >
           <Twitter
             width={25}
@@ -71,6 +71,23 @@ const SocialIcons = ({ theme }) => {
           to="https://github.com/ali-fikri"
         >
           <Facebook
+            width={25}
+            height={25}
+            fill={theme === "dark" ? darkTheme.text : darkTheme.body}
+          />
+        </NavLink>
+      </motion.div>
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ type: "spring", duration: 1, delay: 1.8 }}
+      >
+        <NavLink
+          style={{ color: "inherit" }}
+          target="_blank"
+          to="https://www.linkedin.com/in/ali-fikri-al-laithie/"
+        >
+          <Linkedin
             width={25}
             height={25}
             fill={theme === "dark" ? darkTheme.text : darkTheme.body}
