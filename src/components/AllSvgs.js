@@ -80,7 +80,7 @@ export const Linkedin = (props) => {
           aria-hidden="true"
           data-prefix="fab"
           data-icon="linkedin"
-          className="prefix__svg-inline--fa prefix__fa-youtube prefix__fa-w-18"
+          className="prefix__svg-inline--fa prefix__fa-linkedin prefix__fa-w-18"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="5 5 128 128"
           {...props}

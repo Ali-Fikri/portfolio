@@ -1,59 +1,31 @@
 export const Work = [
     {
-        id:1,
-        name:"Agency Landing Page",
-        description:"It is build on top of the React JS, with styledComponents and GSAP for smooth scrolling animations.",
-        tags:["react","gsap","styledComponents"],
+        id:crypto.randomUUID(),
+        name:"Crypto Currency News",
+        description:"It is build on top of the React JS, with antd and react-chart-js for data visualization.",
+        tags:["react","antd","react-chart-js"],
         
-        demo:"https://agency-website-eta.vercel.app/",
-        github:"https://github.com/codebucks27/Agency-website"
+        demo:"https://cryptoverse-web-application.netlify.app/",
+        github:"https://github.com/Ali-Fikri/cryptoverse"
     },
     {
-        id:2,
-        name:"Job listing website",
-        description:"A Job listing website build in ReactJS. With searching and filtering functionalities.",
-        tags:["react","sass"],
+        id:crypto.randomUUID(),
+        name:"Landing Page",
+        description:"A cool looking landing page build by pure HTML, CSS and JS options sidebar",
+        tags:["JS","CSS","HTML"],
         
-        demo:"http://react-job-listing-website.codebucks27.vercel.app/",
-        github:"https://github.com/codebucks27/react-job-listing-website"
+        demo:"https://special-design-landing.netlify.app/",
+        github:"https://github.com/Ali-Fikri/Special_Template"
         
     },
     {
-        id:3,
-        name:"Dev.to Clone",
-        description:"A clone of Dev.to build using ReactJS. With realtime fetching of articles from dev.to using API.",
-        tags:["react","api","sass"],
+        id:crypto.randomUUID(),
+        name:"Nike landing page",
+        description:"A cool looking nike landing page build using ReactJS and tailwindCSS.It has really smooth animations.",
+        tags:["react","tailwindCSS"],
         
-        demo:"http://devto-clone-codebucks27.vercel.app/",
-        github:"https://github.com/codebucks27/devto-clone"
-    },
-    {
-        id:4,
-        name:"Sidebar Menu",
-        description:"A cool looking sidebar menu build using ReactJS and styledComponents.It has really smooth animations.",
-        tags:["react","styledComponents","react-router"],
-        
-        demo:"https://react-sidebar.vercel.app/",
-        github:"https://github.com/codebucks27/react-sidebar"
+        demo:"https://nike-ali.vercel.app/",
+        github:"https://github.com/Ali-Fikri/nike"
        
-    },{
-        id:5,
-        name:"Todo App(React + Redux)",
-        description:"A todo app build using Redux-toolkit and framer-motion for smooth animations.",
-        tags:["react","redux","framer-motion"],
-        
-        demo:"http://react-redux-todo-app-git-main-codebucks27.vercel.app/",
-        github:"https://github.com/codebucks27/React-Redux-Todo-App"
-        
-    },
-    {
-        id:6,
-        name:"Responsive Navigation Menu",
-        description:"A reponsive navbar menu component in ReactJS with react-router functionalities. Built from scratch.",
-        tags:["react","react-router","css"],
-        
-        demo:"http://react-responsive-navbar-codebucks27.vercel.app/",
-        github:"https://github.com/codebucks27/React-responsive-navbar"
-        
     },
 ] 
