@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import styled, { keyframes } from "styled-components";
 
 import { darkTheme } from "./Themes";
-import music from "../assets/audio/u-said-it-v13-1167.mp3";
+import music from "../assets/audio/kon.m4a";
 
 const Box = styled.div`
   position: fixed;

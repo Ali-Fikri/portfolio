@@ -1,5 +1,5 @@
-import { ThemeProvider } from "styled-components";
-import styled from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
+import { motion } from "framer-motion";
 
 import { lightTheme } from "./Themes";
 import { Develope } from "./AllSvgs";
@@ -10,7 +10,7 @@ import ParticleComponent from "./ParticleComponent";
 import MainTitle from "./MainTitle";
 import SoundBar from "./SoundBar";
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   background-color: ${(props) => props.theme.body};
   width: 100vw;
   height: 100vh;
@@ -84,36 +84,45 @@ const Description = styled.div`
 const MySkills = () => {
   return (
     <ThemeProvider theme={lightTheme}>
-      <Container>
-        <LogoComponent theme="light" />
-        <SocialIcons theme="light" />
-        <PowerButton />
-        <SoundBar theme={"dark"} />
-        <MainTitle 
-          text="Skills" 
-          bottom="0%" 
-          right="10%" 
-          theme={lightTheme} />
-        <ParticleComponent theme="light" />
+      <motion.div
+        
+            
+          >
+        <Container
+          initial={{ opacity: 0}}
+          animate={{opacity: [0, 0.5, 1]}}
+          transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1]}}
+        >
+          <LogoComponent theme="light" />
+          <SocialIcons theme="light" />
+          <PowerButton />
+          <SoundBar theme={"dark"} />
+          <MainTitle 
+            text="Skills" 
+            bottom="0%" 
+            right="10%" 
+            theme={lightTheme} />
+          <ParticleComponent theme="light" />
 
-        <Card>
-          <Title>
-            <Develope width={40} height={40} /> Frontend Developer
-          </Title>
-          <Description>
-            I value business or brand for which i'm creating, thus i enjoy
-            bringing new ideas to life.
-          </Description>
-          <Description>
-            <strong>SKILLS</strong>
-            <p className="margin">Html, Css, Js, React, Redux, Sass, Bootstrap, Tailwind etc.</p>
-          </Description>
-          <Description>
-            <strong>TOOLS</strong>
-            <p className="margin">VScode, Github, Codepen etc.</p>
-          </Description>
-        </Card>
-      </Container>
+          <Card>
+            <Title>
+              <Develope width={40} height={40} /> Frontend Developer
+            </Title>
+            <Description>
+              I value business or brand for which i'm creating, thus i enjoy
+              bringing new ideas to life.
+            </Description>
+            <Description>
+              <strong>SKILLS</strong>
+              <p className="margin">Html, Css, Js, React, Redux, Sass, Bootstrap, Tailwind etc.</p>
+            </Description>
+            <Description>
+              <strong>TOOLS</strong>
+              <p className="margin">VScode, Github, Codepen etc.</p>
+            </Description>
+          </Card>
+        </Container>
+      </motion.div>
     </ThemeProvider>
   );
 };

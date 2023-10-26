@@ -26,7 +26,7 @@ const Variants = {
   },
 };
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   background-color: ${(props) => props.theme.body};
   height: 300vh;
   position: relative;
@@ -70,7 +70,11 @@ const MyWork = () => {
 
   return (
     <ThemeProvider theme={darkTheme}>
-      <Container>
+      <Container
+        initial={{ opacity: 0}}
+        animate={{opacity: [0, 0.5, 1]}}
+        transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1]}}
+      >
         <LogoComponent theme="dark" />
         <SocialIcons theme="dark" />
         <SoundBar theme="dark" />

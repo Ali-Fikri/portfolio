@@ -10,7 +10,7 @@ import { YinYang } from "./AllSvgs";
 import Intro from "./Intro";
 import SoundBar from "./SoundBar";
 
-const MainContainer = styled.main`
+const MainContainer = styled(motion.main)`
   background: ${(props) => props.theme.body};
   width: 100vw;
   height: 100vh;
@@ -167,6 +167,7 @@ const Home = () => {
   const [click, setClick] = useState(false);
   const [smallYin, setSmallYin] = useState(120);
   const [bigYin, setBigYin] = useState(200);
+  const [targetSec, setTargetSec] = useState('');
 
   useEffect(
     (_) => {
@@ -183,7 +184,12 @@ const Home = () => {
 
   return (
     <>
-      <MainContainer>
+      <MainContainer 
+        init={{opacity: 0}}
+        animate={{ opacity: [0, 0.5, 1]}}
+        exit={{ x: `${targetSec === "work" ? "100%" : "-100%" }`}}
+        transition={{ duration: 1.5, type: "spring"}}
+        >
         <DarkDiv click={click}></DarkDiv>
 
         <Container>
@@ -221,7 +227,7 @@ const Home = () => {
             </motion.h3>
           </Contact>
 
-          <About click={click} to="/about">
+          <About click={click} onClick={_=> setTargetSec('about')} to="/about">
             <motion.h3
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
@@ -238,7 +244,7 @@ const Home = () => {
             </motion.h3>
           </About>
 
-          <Work click={click} to="/work">
+          <Work click={click} onClick={_=> setTargetSec('work')} to="/work">
             <motion.h3
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
@@ -255,7 +261,7 @@ const Home = () => {
             </motion.h3>
           </Work>
 
-          <Skills click={click} to="/my-skills">
+          <Skills click={click} onClick={_=> setTargetSec('skills')} to="/my-skills">
             <motion.h3
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}

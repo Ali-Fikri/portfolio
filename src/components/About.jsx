@@ -2,6 +2,8 @@ import { ThemeProvider } from "styled-components";
 import styled, { keyframes } from "styled-components";
 
 import { darkTheme } from "./Themes";
+import { motion } from "framer-motion";
+
 import LogoComponent from "./LogoComponent";
 import PowerButton from "./PowerButton";
 import SocialIcons from "./SocialIcons";
@@ -10,7 +12,7 @@ import SoundBar from "./SoundBar";
 import MainTitle from "./MainTitle";
 import astronaut from "../assets/Images/spaceman.png";
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   background-color: ${(props) => props.theme.body};
   width: 100vw;
   height: 100vh;
@@ -72,7 +74,11 @@ left: calc(3rem + 5vw);
 const About = () => {
   return (
     <ThemeProvider theme={darkTheme}>
-      <Container>
+      <Container
+        initial={{ opacity: 0}}
+        animate={{opacity: [0, 0.5, 1]}}
+        transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1]}}
+      >
         <LogoComponent theme="dark" />
         <SocialIcons theme="dark" />
         <SoundBar theme="light" />
